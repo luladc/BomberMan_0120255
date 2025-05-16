@@ -20,10 +20,6 @@ protected:
     virtual void Tick(float DeltaTime) override;
 
 private:
-    // Instancia única que se conserva (no es estática)
-    UPROPERTY()
-    APuertaTransportadora2* InstanciaUnica;
-
     // Componente visual
     UPROPERTY(VisibleAnywhere)
     class UStaticMeshComponent* Mesh;

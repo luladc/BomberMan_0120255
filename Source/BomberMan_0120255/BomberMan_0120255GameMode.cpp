@@ -14,8 +14,6 @@
 #include "BloqueOro.h"
 #include "BloquePasto.h"
 #include "BloqueVidrio.h"
-#include "PuertaTransportadora.h"
-#include "PuertaTransportadora2.h"
 
 ABomberMan_0120255GameMode::ABomberMan_0120255GameMode()
 {
@@ -30,28 +28,6 @@ ABomberMan_0120255GameMode::ABomberMan_0120255GameMode()
 void ABomberMan_0120255GameMode::BeginPlay()
 {
 	Super::BeginPlay();
-
-
-	// Crear múltiples instancias de PuertaTransportadora
-	for (int32 i = 0; i < 4; ++i)
-	{
-		FVector Posicion = FVector(i * 300.0f, 0.0f, 0.0f);
-		FActorSpawnParameters SpawnParams;
-		APuertaTransportadora2* NuevaPuerta = GetWorld()->SpawnActor<APuertaTransportadora2>(APuertaTransportadora2::StaticClass(), Posicion, FRotator::ZeroRotator, SpawnParams);
-
-		if (NuevaPuerta)
-		{
-			UE_LOG(LogTemp, Warning, TEXT("PuertaTransportadora2 creada en %s"), *Posicion.ToString());
-		}
-	}
-
-	// Asegurar que exista la PuertaTransportadora
-	/*APuertaTransportadora* Puerta = APuertaTransportadora::GetInstance(GetWorld());
-
-	if (Puerta)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("PuertaTransportadora está activa: %s"), *Puerta->GetName());
-	}*/
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 

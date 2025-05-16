@@ -4,12 +4,8 @@
 #include "PuertaTransportadora.h"
 #include "Components/StaticMeshComponent.h"
 #include "UObject/ConstructorHelpers.h"
-#include "Kismet/GameplayStatics.h"
 #include "Engine/World.h"
 #include "Engine/Engine.h"
-
-// Inicialización de la instancia
-APuertaTransportadora* APuertaTransportadora::Instance = nullptr;
 
 APuertaTransportadora::APuertaTransportadora()
 {
@@ -33,29 +29,9 @@ APuertaTransportadora::APuertaTransportadora()
 void APuertaTransportadora::BeginPlay()
 {
     Super::BeginPlay();
-
-    if (!Instance)
-    {
-        Instance = this;
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("PuertaTransportadora inicializada."));
-    }
-    else
-    {
-        GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Otra instancia de PuertaTransportadora destruida."));
-        Destroy();
-    }
 }
 
 void APuertaTransportadora::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
-}
-
-APuertaTransportadora* APuertaTransportadora::GetInstance(UWorld* World)
-{
-    if (!Instance && World)
-    {
-        Instance = World->SpawnActor<APuertaTransportadora>(APuertaTransportadora::StaticClass());
-    }
-    return Instance;
 }
