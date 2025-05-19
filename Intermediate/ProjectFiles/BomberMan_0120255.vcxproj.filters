@@ -11,6 +11,8 @@
     <None Include="..\..\Source\BomberMan_0120255Editor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -90,6 +92,30 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\BloqueVidrio.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Director.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ILaberinto.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ILaberintoBuilder.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Laberinto.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Laberinto2.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Laberinto2Concreto.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\LaberintoConcreto.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Obstaculo.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\PuertaTransportadora.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
@@ -130,6 +156,30 @@
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\BloqueVidrio.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Director.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ILaberinto.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ILaberintoBuilder.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Laberinto.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Laberinto2.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Laberinto2Concreto.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\LaberintoConcreto.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Obstaculo.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\PuertaTransportadora.h">

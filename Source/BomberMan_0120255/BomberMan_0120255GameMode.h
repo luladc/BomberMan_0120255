@@ -19,10 +19,17 @@ public:
 public:
 	virtual void BeginPlay() override;
 
+private:
+	//El actor constructor
+	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
+	class ALaberintoConcreto* BuilderLab;
+
+	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
+	class ADirector* DirectorLab;
 public:
 
 	// Declarar un mapa de bloques como un array bidimensional
-	TArray<TArray<int32>> aMapaBloques = {
+	/*TArray<TArray<int32>> aMapaBloques = {
 	{4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4},
 		{4, 9, 6, 0, 0, 0, 0, 0, 7, 9, 0, 5, 10, 0, 0, 0, 0, 0, 7, 7, 0, 9, 3, 0, 0, 0, 0, 0, 5, 9, 0, 5, 5, 0, 0, 0, 0, 0, 10, 7, 0, 6, 10, 0, 0, 0, 0, 0, 10, 4},
 		{4, 0, 5, 0, 8, 0, 7, 0, 0, 0, 0, 0, 3, 0, 10, 0, 6, 0, 0, 0, 0, 0, 8, 0, 8, 0, 3, 0, 0, 0, 0, 0, 10, 0, 6, 0, 7, 0, 0, 0, 0, 0, 1, 0, 6, 0, 3, 0, 0, 4},
@@ -89,7 +96,7 @@ public:
 
 	//void SpawnBloques();
 	void SpawnBloque(FVector posicion, int32 tipoBloque);
-	//void DestruirBloque();
+	//void DestruirBloque();*/
 };
 
 

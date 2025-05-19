@@ -14,6 +14,14 @@
 #include "BloqueOro.h"
 #include "BloquePasto.h"
 #include "BloqueVidrio.h"
+#include "LaberintoConcreto.h"
+#include "Laberinto.h"
+#include "ILaberintoBuilder.h"
+#include "PuertaTransportadora.h"
+#include "Obstaculo.h"
+#include "Director.h"
+
+
 
 ABomberMan_0120255GameMode::ABomberMan_0120255GameMode()
 {
@@ -31,8 +39,21 @@ void ABomberMan_0120255GameMode::BeginPlay()
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
+	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
+	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+	DirectorLab->ConstruirTodo();
+	// DirectorLab->CrearLab1();
+	// DirectorLab->CrearMuros();
+	// DirectorLab->CrearBloques();
+	// DirectorLab->CrearPuertas();
+	// DirectorLab->CrearObstaculos();
+
+
+}
+
 	// Recorremos la matriz para generar los bloques
-	for (int32 fila = 0; fila < aMapaBloques.Num(); ++fila)
+	/*/for (int32 fila = 0; fila < aMapaBloques.Num(); ++fila)
 	{
 		for (int32 columna = 0; columna < aMapaBloques[fila].Num(); ++columna)
 		{
@@ -108,4 +129,4 @@ void ABomberMan_0120255GameMode::SpawnBloque(FVector posicionBloque, int32 tipoB
 		aBloques.Add(BloqueGenerado);
 	}
 
-}
+}*/

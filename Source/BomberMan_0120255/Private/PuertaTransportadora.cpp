@@ -21,7 +21,7 @@ APuertaTransportadora::APuertaTransportadora()
     {
         MeshComponent->SetStaticMesh(MeshAsset.Object);
         MeshComponent->SetRelativeScale3D(FVector(0.5f, 2.0f, 5.0f)); // forma rectangular tipo puerta
-        MeshComponent->SetRelativeLocation(FVector(1460.0f, 1370.0f, 160.0f)); // ajustar altura
+        //MeshComponent->SetRelativeLocation(FVector(1460.0f, 1370.0f, 160.0f)); // ajustar altura
     }
 
 }
