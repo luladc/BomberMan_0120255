@@ -20,7 +20,8 @@ private: \
 	friend struct Z_Construct_UClass_ALaberinto2Concreto_Statics; \
 public: \
 	DECLARE_CLASS(ALaberinto2Concreto, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BomberMan_0120255"), NO_API) \
-	DECLARE_SERIALIZER(ALaberinto2Concreto)
+	DECLARE_SERIALIZER(ALaberinto2Concreto) \
+	virtual UObject* _getUObject() const override { return const_cast<ALaberinto2Concreto*>(this); }
 
 
 #define FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_Laberinto2Concreto_h_12_ENHANCED_CONSTRUCTORS \

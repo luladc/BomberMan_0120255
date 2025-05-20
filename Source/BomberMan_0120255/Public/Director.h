@@ -31,11 +31,6 @@ public:
 
 	//Establecer el Actor Constructor
 	void EstablecerILaberintoBuilder(IILaberintoBuilder* Builder);
-	void CrearBloques();
-	void CrearPuertas();
-	void CrearObstaculos();
-	void CrearMuros();
-	void CrearLab1();
-	void ConstruirTodo();
-
+	void ConstruirLaberinto();
+	class ALaberinto* GetLaberinto();
 };

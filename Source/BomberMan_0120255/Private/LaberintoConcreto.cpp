@@ -28,16 +28,12 @@ ALaberintoConcreto::ALaberintoConcreto()
 		MapaDeBloques.Add(2, ABloqueConcreto::StaticClass());
 		MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
 		MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
-		MapaDeBloques.Add(5, ABloqueBurbuja::StaticClass());
-		MapaDeBloques.Add(6, ABloqueVidrio::StaticClass());
-		MapaDeBloques.Add(7, ABloqueAgua::StaticClass());
-		MapaDeBloques.Add(8, ABloqueHielo::StaticClass());
-		MapaDeBloques.Add(9, ABloquePasto::StaticClass());
-		MapaDeBloques.Add(10, ABloqueOro::StaticClass());
+		MapaDeBloques.Add(6, ABloqueOro::StaticClass());
+		MapaDeBloques.Add(5, ABloquePasto::StaticClass());
 
-		MapaDeObstaculos.Add(11, AObstaculo::StaticClass());
+		MapaDeObstaculos.Add(8, AObstaculo::StaticClass());
 
-		MapaDePuertas.Add(12, APuertaTransportadora::StaticClass());
+		MapaDePuertas.Add(7, APuertaTransportadora::StaticClass());
 
 
 }
@@ -67,7 +63,7 @@ void ALaberintoConcreto::ConstruirMuros()
 			int32 Tipo = Laberinto->aMapaBloques[i][j];
 			if (MapaDeBloques.Contains(4) && Tipo != 0)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
+				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
 				GetWorld()->SpawnActor<AActor>(MapaDeBloques[4], Posicion, FRotator::ZeroRotator);
 			}
 		}
@@ -84,9 +80,9 @@ void ALaberintoConcreto::ConstruirBloques()
 		{
 			int32 Tipo = Laberinto->aMapaBloques[i][j];
 
-			if (Tipo != 0 && Tipo != 4)
+			if (Tipo != 0 && Tipo != 4 && Tipo != 7 && Tipo != 8)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
+				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
 				GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator);
 			}
 		}
@@ -103,10 +99,10 @@ void ALaberintoConcreto::ConstruirObstaculos()
 		{
 			int32 Tipo = Laberinto->aMapaObstaculos[i][j];
 
-			if (Tipo == 11 )
+			if (Tipo == 8 && Tipo != 0 )
 			{
-				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-				GetWorld()->SpawnActor<AActor>(MapaDeObstaculos[Tipo], Posicion, FRotator::ZeroRotator);
+				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
+				GetWorld()->SpawnActor<AActor>(MapaDeObstaculos[8], Posicion, FRotator::ZeroRotator);
 			}
 		}
 	}
@@ -121,258 +117,18 @@ void ALaberintoConcreto::ConstruirPuertas()
 		{
 			int32 Tipo = Laberinto->aMapaPuertas[i][j];
 
-			if (Tipo == 12)
+			if (Tipo == 7 && Tipo != 0)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-				GetWorld()->SpawnActor<AActor>(MapaDePuertas[Tipo], Posicion, FRotator::ZeroRotator);
+				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
+				GetWorld()->SpawnActor<AActor>(MapaDePuertas[7], Posicion, FRotator::ZeroRotator);
 			}
 		}
 	}
 }
 
-void ALaberintoConcreto::LaberintoCompleto()
+ALaberinto* ALaberintoConcreto::GetLaberinto()
 {
-	ConstruirBloques();
-	ConstruirMuros();
-	ConstruirObstaculos();
-	ConstruirPuertas();
+	//Returns the Lodging Actor of the Builder (this)
+	return Laberinto;
 }
 
-
-/*void ALaberintoConcreto::ConstruirBloques(TArray<TArray<int32>>& Mapa, int32 TipoBloque, TSubclassOf<AActor> ClaseBloque)
-{
-    if (!Laberinto) return;
-
-    for (int32 i = 0; i < Mapa.Num(); i++)
-    {
-        for (int32 j = 0; j < Mapa[i].Num(); j++)
-        {
-            if (Mapa[i][j] == TipoBloque)
-            {
-                FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-                GetWorld()->SpawnActor<AActor>(ClaseBloque, Posicion, FRotator::ZeroRotator);
-            }
-        }
-    }
-}
-
-void ALaberintoConcreto::ConstruirPuertas(TArray<TArray<int32>>& Mapa, int32 TipoPuerta, TSubclassOf<AActor> ClasePuerta)
-{
-	if (!Laberinto) return;
-	for (int32 i = 0; i < Mapa.Num(); i++)
-	{
-		for (int32 j = 0; j < Mapa[i].Num(); j++)
-		{
-			if (Mapa[i][j] == TipoPuerta)
-			{
-				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-				GetWorld()->SpawnActor<AActor>(ClasePuerta, Posicion, FRotator::ZeroRotator);
-			}
-		}
-	}
-}
-
-void ALaberintoConcreto::ConstruirObstaculos(TArray<TArray<int32>>& Mapa, int32 TipoObstaculo, TSubclassOf<AActor> ClaseObstaculo)
-{
-	if (!Laberinto) return;
-	for (int32 i = 0; i < Mapa.Num(); i++)
-	{
-		for (int32 j = 0; j < Mapa[i].Num(); j++)
-		{
-			if (Mapa[i][j] == TipoObstaculo)
-			{
-				FVector Posicion(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial);
-				GetWorld()->SpawnActor<AActor>(ClaseObstaculo, Posicion, FRotator::ZeroRotator);
-			}
-		}
-	}
-}
-
-void ALaberintoConcreto::LaberintoCompleto()
-{
-    if (!Laberinto) return;
-
-    // Mapa de bloques (madera, concreto, acero, ladrillo)
-    ConstruirBloques(Laberinto->aMapaBloques, 1, ABloqueMadera::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 2, ABloqueConcreto::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 3, ABloqueAcero::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 4, ABloqueLadrillo::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 5, ABloqueBurbuja::StaticClass());
-    ConstruirBloques(Laberinto->aMapaBloques, 6, ABloqueVidrio::StaticClass());
-	ConstruirBloques(Laberinto->aMapaBloques, 7, ABloqueAgua::StaticClass());
-	ConstruirBloques(Laberinto->aMapaBloques, 8, ABloqueHielo::StaticClass());
-	ConstruirBloques(Laberinto->aMapaBloques, 9, ABloquePasto::StaticClass());
-	ConstruirBloques(Laberinto->aMapaBloques, 10, ABloqueOro::StaticClass());
-
-    ConstruirObstaculos(Laberinto->aMapaObstaculos, 11, AObstaculo::StaticClass());
-    ConstruirPuertas(Laberinto->aMapaPuertas, 12, APuertaTransportadora::StaticClass());
-
-}*/
-
-
-
-/*void ALaberintoConcreto::BuildWoods()
-{
-	if (Laberinto)
-	{
-		for (int32 i = 0; i < Laberinto->aMapaBloques.Num(); i++)
-		{
-			for (int32 j = 0; j < Laberinto->aMapaBloques[i].Num(); j++)
-			{
-				int32 BlockType = Laberinto->aMapaBloques[i][j];
-				if (tipoBloque!= 0 && tipoBloque != 4) {
-					GetWorld()->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), FVector(Laberinto->XInicial + i * 100, Laberinto->YInicial + j * 100, Laberinto->ZInicial), FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-	else if (MazeTest)
-	{
-		for (int32 i = 0; i < Laberinto->aMapaBloques.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaBloques[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaBloques[i][j];
-				if (BlockType != 0 && BlockType != 4) {
-					GetWorld()->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial), FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-
-}
-
-void AMaze_BuilderConcrete::BuildConcrete()
-{
-	if (MazeTest)
-	{
-		for (int32 i = 0; i < MazeTest->aMapaBloques.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaBloques[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaBloques[i][j];
-				if (BlockType == 4) {
-					GetWorld()->SpawnActor<ABloqueConcreto>(
-						ABloqueConcreto::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-}
-
-void AMaze_BuilderConcrete::BuildSteel()
-{
-	if (MazeTest)
-	{
-		for (int32 i = 0; i < MazeTest->aMapaBloques.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaBloques[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaBloques[i][j];
-				if (BlockType != 0 && BlockType != 4) {
-					GetWorld()->SpawnActor<ABloqueAcero>(
-						ABloqueAcero::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-}
-
-void AMaze_BuilderConcrete::BuildBrick()
-{
-	if (MazeTest)
-	{
-		for (int32 i = 0; i < MazeTest->aMapaBloques.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaBloques[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaBloques[i][j];
-				if (BlockType != 0 && BlockType != 4) {
-					GetWorld()->SpawnActor<ABloqueLadrillo>(
-						ABloqueLadrillo::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-}
-
-void AMaze_BuilderConcrete::BuildPuertas()
-{
-	if (MazeTest)
-	{
-		for (int32 i = 0; i < MazeTest->aMapaPuertas.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaPuertas[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaPuertas[i][j];
-				if (BlockType == 6) {
-					GetWorld()->SpawnActor<ABala>(
-						ABala::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-}
-
-void AMaze_BuilderConcrete::BuildVidrios()
-{
-	if (MazeTest)
-	{
-		for (int32 i = 0; i < MazeTest->aMapaVidrios.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaVidrios[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaVidrios[i][j];
-				if (BlockType == 5) {
-					GetWorld()->SpawnActor<ABloqueBurbuja>(
-						ABloqueBurbuja::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-}
-
-void AMaze_BuilderConcrete::FullMaze()
-{
-	if (MazeTest)
-	{
-		for (int32 i = 0; i < MazeTest->aMapaBloques.Num(); i++)
-		{
-			for (int32 j = 0; j < MazeTest->aMapaBloques[i].Num(); j++)
-			{
-				int32 BlockType = MazeTest->aMapaBloques[i][j];
-				if (BlockType == 1) {
-					GetWorld()->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial), FRotator::ZeroRotator);
-				}
-				else if (BlockType == 2) {
-					GetWorld()->SpawnActor<ABloqueConcreto>(
-						ABloqueConcreto::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-				else if (BlockType == 3) {
-					GetWorld()->SpawnActor<ABloqueAcero>(
-						ABloqueAcero::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-				else if (BlockType == 4) {
-					GetWorld()->SpawnActor<ABloqueLadrillo>(
-						ABloqueLadrillo::StaticClass(),
-						FVector(MazeTest->XInicial + i * 100, MazeTest->YInicial + j * 100, MazeTest->ZInicial),
-						FRotator::ZeroRotator);
-				}
-			}
-		}
-	}
-}*/

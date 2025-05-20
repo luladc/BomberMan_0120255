@@ -14,6 +14,7 @@
 #include "BloqueOro.h"
 #include "BloquePasto.h"
 #include "BloqueVidrio.h"
+#include "BloqueRaro.h"
 #include "LaberintoConcreto.h"
 #include "Laberinto.h"
 #include "ILaberintoBuilder.h"
@@ -42,14 +43,31 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
 	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
 	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
-	DirectorLab->ConstruirTodo();
-	// DirectorLab->CrearLab1();
-	// DirectorLab->CrearMuros();
-	// DirectorLab->CrearBloques();
-	// DirectorLab->CrearPuertas();
-	// DirectorLab->CrearObstaculos();
 
+	//Spawn Builder and Engineer
+	//Set the Builder for the Engineer and create the buildings
+	DirectorLab->ConstruirLaberinto();
+	//Get the Engineer's Lodging and Logs the created buildings
+	ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+	/*if (BloquePrototipo)
+	{
+		// Spawn prototipo oculto que actuará como "molde"
+		FActorSpawnParameters Params;
+		Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
+		ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(BloquePrototipo, FVector::ZeroVector, FRotator::ZeroRotator, Params);
+
+		if (BloqueReferencia)
+		{
+			BloqueReferencia->SetActorHiddenInGame(true); // Lo ocultamos si solo es prototipo
+
+			for (int i = 0; i < 5; ++i)
+			{
+				FVector Pos = FVector(1000.f, i * 200.f, 100.f);
+				BloqueReferencia->Clonar(Pos, FRotator::ZeroRotator);
+			}
+		}
+	}*/
 }
 
 	// Recorremos la matriz para generar los bloques

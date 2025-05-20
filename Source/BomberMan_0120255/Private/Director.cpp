@@ -27,79 +27,38 @@ void ADirector::Tick(float DeltaTime)
 
 void ADirector::EstablecerILaberintoBuilder(IILaberintoBuilder* Builder)
 {
-	LaberintoBuilder = Builder;
-}
-
-void ADirector::CrearMuros()
-{
-	if (LaberintoBuilder)
+	LaberintoBuilder = Cast<IILaberintoBuilder>(Builder);
+	//Cast the passed Actor and set the Builder
+	if (!LaberintoBuilder) //Log Error if cast fails
 	{
-		LaberintoBuilder->ConstruirMuros();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Red,
+			TEXT("Invalid Cast! See Output log for more details"));
 	}
 }
 
-void ADirector::CrearBloques()
+ALaberinto* ADirector::GetLaberinto()
 {
 	if (LaberintoBuilder)
 	{
+		//Returns the Lodging of the Builder
+		return LaberintoBuilder->GetLaberinto();
+	}
+	//Log if the Builder is NULL
+	UE_LOG(LogTemp, Error, TEXT("GetLodging(): Return nullptr"));
+	return nullptr;
+}
+void ADirector::ConstruirLaberinto()
+{
+	//Log if the Builder is NULL
+	if (!LaberintoBuilder) {
+		{
+			UE_LOG(LogTemp, Error,
+				TEXT("ConstructLodging(): LodgingBuilder is NULL, make sure it's initialized, "))
+					return;
+		}
+		//Creates the buildings
 		LaberintoBuilder->ConstruirBloques();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
-	}
-}
-
-void ADirector::CrearPuertas()
-{
-	if (LaberintoBuilder)
-	{
+		LaberintoBuilder->ConstruirMuros();
 		LaberintoBuilder->ConstruirPuertas();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
-	}
-}
-
-void ADirector::CrearObstaculos()
-{
-	if (LaberintoBuilder)
-	{
 		LaberintoBuilder->ConstruirObstaculos();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
-	}
 }
-
-void ADirector::CrearLab1()
-{
-	if (LaberintoBuilder)
-	{
-		LaberintoBuilder->ConstruirMuros();
-		LaberintoBuilder->ConstruirBloques();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
-	}
-} 
-
-void ADirector::ConstruirTodo()
-{
-	if (LaberintoBuilder)
-	{
-		LaberintoBuilder->LaberintoCompleto();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Builder no asignado"));
-	}
-}
-

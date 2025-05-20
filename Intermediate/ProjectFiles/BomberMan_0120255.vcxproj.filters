@@ -89,16 +89,25 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\BloquePasto.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\BloqueRaro.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\BloqueVidrio.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Director.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\IBloque.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ILaberinto.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ILaberintoBuilder.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ILaberintoBuilder2.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Laberinto.cpp">
@@ -155,16 +164,25 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\BloquePasto.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\BloqueRaro.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\BloqueVidrio.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Director.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\IBloque.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ILaberinto.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ILaberintoBuilder.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ILaberintoBuilder2.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Laberinto.h">

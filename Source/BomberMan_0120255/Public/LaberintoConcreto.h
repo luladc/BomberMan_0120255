@@ -29,7 +29,7 @@ public:
 	void ConstruirMuros() override;
 	void ConstruirPuertas() override;
 	void ConstruirObstaculos() override;
-	void LaberintoCompleto() override;
+	virtual class ALaberinto* GetLaberinto() override;
 	// Mapeos para cada tipo
 	TMap<int32, TSubclassOf<AActor>> MapaDeBloques;
 	TMap<int32, TSubclassOf<AActor>> MapaDePuertas;

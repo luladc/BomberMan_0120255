@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeLaberinto2Concreto() {}
 // Begin Cross Module References
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ALaberinto2Concreto();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ALaberinto2Concreto_NoRegister();
+BOMBERMAN_0120255_API UClass* Z_Construct_UClass_UILaberintoBuilder_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 UPackage* Z_Construct_UPackage__Script_BomberMan_0120255();
 // End Cross Module References
@@ -34,6 +35,7 @@ struct Z_Construct_UClass_ALaberinto2Concreto_Statics
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
+	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ALaberinto2Concreto>::IsAbstract,
 	};
@@ -44,6 +46,9 @@ UObject* (*const Z_Construct_UClass_ALaberinto2Concreto_Statics::DependentSingle
 	(UObject* (*)())Z_Construct_UPackage__Script_BomberMan_0120255,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ALaberinto2Concreto_Statics::DependentSingletons) < 16);
+const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ALaberinto2Concreto_Statics::InterfaceParams[] = {
+	{ Z_Construct_UClass_UILaberintoBuilder_NoRegister, (int32)VTABLE_OFFSET(ALaberinto2Concreto, IILaberintoBuilder), false },  // 2750216167
+};
 const UECodeGen_Private::FClassParams Z_Construct_UClass_ALaberinto2Concreto_Statics::ClassParams = {
 	&ALaberinto2Concreto::StaticClass,
 	"Engine",
@@ -51,11 +56,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ALaberinto2Concreto_Sta
 	DependentSingletons,
 	nullptr,
 	nullptr,
-	nullptr,
+	InterfaceParams,
 	UE_ARRAY_COUNT(DependentSingletons),
 	0,
 	0,
-	0,
+	UE_ARRAY_COUNT(InterfaceParams),
 	0x009000A4u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ALaberinto2Concreto_Statics::Class_MetaDataParams), Z_Construct_UClass_ALaberinto2Concreto_Statics::Class_MetaDataParams)
 };
@@ -79,10 +84,10 @@ ALaberinto2Concreto::~ALaberinto2Concreto() {}
 struct Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_Laberinto2Concreto_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ALaberinto2Concreto, ALaberinto2Concreto::StaticClass, TEXT("ALaberinto2Concreto"), &Z_Registration_Info_UClass_ALaberinto2Concreto, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ALaberinto2Concreto), 3380489537U) },
+		{ Z_Construct_UClass_ALaberinto2Concreto, ALaberinto2Concreto::StaticClass, TEXT("ALaberinto2Concreto"), &Z_Registration_Info_UClass_ALaberinto2Concreto, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ALaberinto2Concreto), 3163087098U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_Laberinto2Concreto_h_109033019(TEXT("/Script/BomberMan_0120255"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_Laberinto2Concreto_h_747590485(TEXT("/Script/BomberMan_0120255"),
 	Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_Laberinto2Concreto_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_Laberinto2Concreto_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

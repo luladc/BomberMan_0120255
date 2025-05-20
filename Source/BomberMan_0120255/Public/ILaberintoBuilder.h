@@ -27,5 +27,5 @@ public:
 	virtual void ConstruirPuertas() = 0;
 	virtual void ConstruirMuros() = 0;
 	virtual void ConstruirObstaculos() = 0;
-	virtual void LaberintoCompleto() = 0;
+	virtual class ALaberinto* GetLaberinto() = 0;
 };
