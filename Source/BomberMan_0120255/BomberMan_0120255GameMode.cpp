@@ -43,12 +43,9 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
 	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
 	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
-
-	//Spawn Builder and Engineer
-	//Set the Builder for the Engineer and create the buildings
-	DirectorLab->ConstruirLaberinto();
-	//Get the Engineer's Lodging and Logs the created buildings
+	//DirectorLab->ConstruirLaberinto();
 	ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+
 	/*if (BloquePrototipo)
 	{
 		// Spawn prototipo oculto que actuará como "molde"
@@ -59,7 +56,7 @@ void ABomberMan_0120255GameMode::BeginPlay()
 
 		if (BloqueReferencia)
 		{
-			BloqueReferencia->SetActorHiddenInGame(true); // Lo ocultamos si solo es prototipo
+			BloqueReferencia->SetActorHiddenInGame(false); // Lo ocultamos si solo es prototipo
 
 			for (int i = 0; i < 5; ++i)
 			{
@@ -67,11 +64,14 @@ void ABomberMan_0120255GameMode::BeginPlay()
 				BloqueReferencia->Clonar(Pos, FRotator::ZeroRotator);
 			}
 		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("No se pudo generar el bloque de referencia"));
 	}*/
 }
 
 	// Recorremos la matriz para generar los bloques
-	/*/for (int32 fila = 0; fila < aMapaBloques.Num(); ++fila)
+	/*for (int32 fila = 0; fila < aMapaBloques.Num(); ++fila)
 	{
 		for (int32 columna = 0; columna < aMapaBloques[fila].Num(); ++columna)
 		{
