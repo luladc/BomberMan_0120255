@@ -24,7 +24,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	virtual AActor* Clonar(FVector Pos, FRotator Rot) override;
+	virtual AActor* Clonar() override;
 	bool bPuedeMoverse;
 	FVector TamanoBloque;
 };

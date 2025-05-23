@@ -17,7 +17,6 @@
 #include "PuertaTransportadora.h"
 #include "Obstaculo.h"
 
-
 // Sets default values
 ALaberintoConcreto::ALaberintoConcreto()
 {

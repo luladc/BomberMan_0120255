@@ -23,5 +23,5 @@ class BOMBERMAN_0120255_API IIBloque
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
 	/** Método para clonar el actor */
-	virtual AActor* Clonar(FVector Pos, FRotator Rot) = 0;
+	virtual AActor* Clonar() = 0;
 };

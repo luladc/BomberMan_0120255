@@ -40,36 +40,19 @@ void ABomberMan_0120255GameMode::BeginPlay()
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
-	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
-	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
-	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+	//BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+	//DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
+	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+
+	//ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
 	//DirectorLab->ConstruirLaberinto();
-	ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+    //ALaberinto* Laberinto = DirectorLab->GetLaberinto();
 
-	/*if (BloquePrototipo)
-	{
-		// Spawn prototipo oculto que actuará como "molde"
-		FActorSpawnParameters Params;
-		Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-		ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(BloquePrototipo, FVector::ZeroVector, FRotator::ZeroRotator, Params);
+	ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
+	AActor* clonbloque = BloqueReferencia->Clonar();
 
-		if (BloqueReferencia)
-		{
-			BloqueReferencia->SetActorHiddenInGame(false); // Lo ocultamos si solo es prototipo
-
-			for (int i = 0; i < 5; ++i)
-			{
-				FVector Pos = FVector(1000.f, i * 200.f, 100.f);
-				BloqueReferencia->Clonar(Pos, FRotator::ZeroRotator);
-			}
-		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("No se pudo generar el bloque de referencia"));
-	}*/
 }
-
 	// Recorremos la matriz para generar los bloques
 	/*for (int32 fila = 0; fila < aMapaBloques.Num(); ++fila)
 	{

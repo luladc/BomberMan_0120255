@@ -26,9 +26,6 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
 	class ADirector* DirectorLab;
-public:
-	UPROPERTY(EditAnywhere, Category = "Prototype")
-	TSubclassOf<ABloqueRaro> BloquePrototipo;
 
 	// Declarar un mapa de bloques como un array bidimensional
 	/*TArray<TArray<int32>> aMapaBloques = {

@@ -10,12 +10,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBomberMan_0120255GameMode() {}
 
 // Begin Cross Module References
-BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ABloqueRaro_NoRegister();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ABomberMan_0120255GameMode();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ABomberMan_0120255GameMode_NoRegister();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ADirector_NoRegister();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ALaberintoConcreto_NoRegister();
-COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
 UPackage* Z_Construct_UPackage__Script_BomberMan_0120255();
 // End Cross Module References
@@ -52,14 +50,9 @@ struct Z_Construct_UClass_ABomberMan_0120255GameMode_Statics
 		{ "Category", "GameModeBase" },
 		{ "ModuleRelativePath", "BomberMan_0120255GameMode.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BloquePrototipo_MetaData[] = {
-		{ "Category", "Prototype" },
-		{ "ModuleRelativePath", "BomberMan_0120255GameMode.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BuilderLab;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DirectorLab;
-	static const UECodeGen_Private::FClassPropertyParams NewProp_BloquePrototipo;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -69,11 +62,9 @@ struct Z_Construct_UClass_ABomberMan_0120255GameMode_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::NewProp_BuilderLab = { "BuilderLab", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberMan_0120255GameMode, BuilderLab), Z_Construct_UClass_ALaberintoConcreto_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BuilderLab_MetaData), NewProp_BuilderLab_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::NewProp_DirectorLab = { "DirectorLab", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberMan_0120255GameMode, DirectorLab), Z_Construct_UClass_ADirector_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DirectorLab_MetaData), NewProp_DirectorLab_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::NewProp_BloquePrototipo = { "BloquePrototipo", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABomberMan_0120255GameMode, BloquePrototipo), Z_Construct_UClass_UClass, Z_Construct_UClass_ABloqueRaro_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BloquePrototipo_MetaData), NewProp_BloquePrototipo_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::NewProp_BuilderLab,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::NewProp_DirectorLab,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::NewProp_BloquePrototipo,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABomberMan_0120255GameMode_Statics::DependentSingletons[])() = {
@@ -116,10 +107,10 @@ ABomberMan_0120255GameMode::~ABomberMan_0120255GameMode() {}
 struct Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_BomberMan_0120255GameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABomberMan_0120255GameMode, ABomberMan_0120255GameMode::StaticClass, TEXT("ABomberMan_0120255GameMode"), &Z_Registration_Info_UClass_ABomberMan_0120255GameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABomberMan_0120255GameMode), 3220529940U) },
+		{ Z_Construct_UClass_ABomberMan_0120255GameMode, ABomberMan_0120255GameMode::StaticClass, TEXT("ABomberMan_0120255GameMode"), &Z_Registration_Info_UClass_ABomberMan_0120255GameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABomberMan_0120255GameMode), 3116273066U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_BomberMan_0120255GameMode_h_805650016(TEXT("/Script/BomberMan_0120255"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_BomberMan_0120255GameMode_h_467145646(TEXT("/Script/BomberMan_0120255"),
 	Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_BomberMan_0120255GameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_BomberMan_0120255GameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

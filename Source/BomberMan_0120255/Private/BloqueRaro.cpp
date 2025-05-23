@@ -53,16 +53,14 @@ void ABloqueRaro::Tick(float DeltaTime)
 
 }
 
-AActor* ABloqueRaro::Clonar(FVector Pos, FRotator Rot)
+AActor* ABloqueRaro::Clonar()
 {
-	FActorSpawnParameters SpawnParams;
-	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-
-	UWorld* Mundo = GetWorld();
-	if (!Mundo) return nullptr;
-
 	// Clona este mismo actor usando su clase y los valores dados
-	AActor* Clon = Mundo->SpawnActor<AActor>(GetClass(), Pos, Rot, SpawnParams);
+	FVector pos = GetActorLocation()+FVector(200.f,0.f,0.f);
+
+	FRotator rot = GetActorRotation();
+
+	ABloqueRaro* Clon = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), pos,rot);
 
 	return Clon;
 }
