@@ -4,16 +4,6 @@
 #include "BomberMan_0120255Character.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Bloque.h"
-#include "BloqueBurbuja.h"
-#include "BloqueAcero.h"
-#include "BloqueConcreto.h"
-#include "BloqueLadrillo.h"
-#include "BloqueMadera.h"
-#include "BloqueAgua.h"
-#include "BloqueHielo.h"
-#include "BloqueOro.h"
-#include "BloquePasto.h"
-#include "BloqueVidrio.h"
 #include "BloqueRaro.h"
 #include "LaberintoConcreto.h"
 #include "Laberinto.h"
@@ -21,7 +11,7 @@
 #include "PuertaTransportadora.h"
 #include "Obstaculo.h"
 #include "Director.h"
-
+#include "Enemigo.h"
 
 
 ABomberMan_0120255GameMode::ABomberMan_0120255GameMode()
@@ -40,94 +30,49 @@ void ABomberMan_0120255GameMode::BeginPlay()
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
-	//BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
-	//DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
-	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
+	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
 
 	//ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
-	//DirectorLab->ConstruirLaberinto();
-    //ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+	DirectorLab->ConstruirLaberinto();
+    ALaberinto* Laberinto = DirectorLab->GetLaberinto();
 
 
-	ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
-	AActor* clonbloque = BloqueReferencia->Clonar();
+	//AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(AEnemigo::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
+	//AActor* clonenemigo = EnemigoReferencia->Clonar();
+
+	//ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
+	//AActor* clonbloque = BloqueReferencia->Clonar();
+
+	// Generar el enemigo original y 5 clones
+    // Crear enemigo base
+    //AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(
+        //AEnemigo::StaticClass(),
+        //FVector(0.0f, 0.0f, 100.0f),
+        //FRotator::ZeroRotator);
+
+    // Verifica que el enemigo se haya creado correctamente
+
+	// Crea el enemigo base (prototipo)
+	//FVector BaseLocation = FVector(-500.0f, -20.0f, 290.0f);
+	//FRotator SpawnRotation = FRotator::ZeroRotator;
+	//
+	//AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(
+	//	AEnemigo::StaticClass(),
+	//	BaseLocation,
+	//	SpawnRotation);
+	//
+	//// Verifica que se creó correctamente
+	//if (EnemigoReferencia)
+	//{
+	//	// Clona el enemigo 5 veces
+	//	for (int32 i = 0; i < 5; i++)
+	//	{
+	//		FVector SpawnLocation = BaseLocation + FVector(i * 200.0f, 0.0f, 0.0f);
+	//		AActor* Clon = EnemigoReferencia->Clonar(SpawnLocation);
+	//	}
+	//}
+
 
 }
-	// Recorremos la matriz para generar los bloques
-	/*for (int32 fila = 0; fila < aMapaBloques.Num(); ++fila)
-	{
-		for (int32 columna = 0; columna < aMapaBloques[fila].Num(); ++columna)
-		{
-			int32 valor = aMapaBloques[fila][columna];
-			if (valor != 0) // Si no es espacio vacío
-			{
-				// Calculamos la posición del bloque
-				FVector posicionBloque = FVector(
-					XInicial + columna * AnchoBloque,
-					YInicial + fila * LargoBloque,
-					50.0f); // Z queda en 50 (altura del bloque)
-
-				// Llamamos a la función para generar un bloque
-				SpawnBloque(posicionBloque, valor);
-			}
-		}
-	}
-}
-
-// Función para generar un bloque
-void ABomberMan_0120255GameMode::SpawnBloque(FVector posicionBloque, int32 tipoBloque)
-{
-	//ABloque* BloqueGenerado = nullptr;
-
-	ABloque* BloqueGenerado = nullptr;
-	// Elegir tipo de bloque basado en el valor
-	if (tipoBloque == 10)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueAgua>(ABloqueAgua::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 9)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloquePasto>(ABloquePasto::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 8)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueOro>(ABloqueOro::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 7)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueVidrio>(ABloqueVidrio::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 6)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueLadrillo>(ABloqueLadrillo::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 5)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueBurbuja>(ABloqueBurbuja::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 4)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueAcero>(ABloqueAcero::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 3)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueConcreto>(ABloqueConcreto::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 2)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueHielo>(ABloqueHielo::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else if (tipoBloque == 1)
-	{
-		BloqueGenerado = GetWorld()->SpawnActor<ABloqueMadera>(ABloqueMadera::StaticClass(), posicionBloque, FRotator(0.0f, 0.0f, 0.0f));
-	}
-	else {
-		return;
-	}
-	// Agregar el bloque al TArray si fue generado
-	if (BloqueGenerado)
-	{
-		aBloques.Add(BloqueGenerado);
-	}
-
-}*/

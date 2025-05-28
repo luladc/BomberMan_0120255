@@ -46,18 +46,18 @@ ALaberinto* ADirector::GetLaberinto()
 	UE_LOG(LogTemp, Error, TEXT("GetLodging(): Return nullptr"));
 	return nullptr;
 }
+
 void ADirector::ConstruirLaberinto()
 {
 	//Log if the Builder is NULL
 	if (!LaberintoBuilder) {
-		{
 			UE_LOG(LogTemp, Error,
-				TEXT("ConstructLodging(): LodgingBuilder is NULL, make sure it's initialized, "))
+				TEXT("ConstructLodging(): LodgingBuilder is NULL, make sure it's initialized, "));
+			return;
 		}
 		//Creates the buildings
 		LaberintoBuilder->ConstruirBloques();
 		LaberintoBuilder->ConstruirMuros();
 		LaberintoBuilder->ConstruirPuertas();
 		LaberintoBuilder->ConstruirObstaculos();
-	}
 }

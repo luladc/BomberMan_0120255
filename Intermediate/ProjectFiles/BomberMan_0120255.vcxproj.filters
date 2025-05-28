@@ -98,7 +98,16 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Director.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Enemigo.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\EnemigoTerrestre.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\IBloque.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\IEnemigo.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ILaberintoBuilder.cpp">
@@ -158,7 +167,16 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Director.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Enemigo.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\EnemigoTerrestre.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\IBloque.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\IEnemigo.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ILaberintoBuilder.h">
