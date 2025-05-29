@@ -6,6 +6,8 @@
 #include "Bloque.h"
 #include "BloqueRaro.h"
 #include "LaberintoConcreto.h"
+#include "LaberintoConcreto2.h"
+#include "LaberintoConcreto3.h"
 #include "Laberinto.h"
 #include "ILaberintoBuilder.h"
 #include "PuertaTransportadora.h"
@@ -31,8 +33,13 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
 	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+	//BuilderLab2 = GetWorld()->SpawnActor<ALaberintoConcreto2>(ALaberintoConcreto2::StaticClass());
+	//BuilderLab3 = GetWorld()->SpawnActor<ALaberintoConcreto3>(ALaberintoConcreto3::StaticClass());
 	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
 	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab2);
+	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab3);
+
 
 	//ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
 	DirectorLab->ConstruirLaberinto();

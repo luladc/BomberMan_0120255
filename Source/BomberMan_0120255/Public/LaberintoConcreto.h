@@ -14,9 +14,15 @@ class BOMBERMAN_0120255_API ALaberintoConcreto : public AActor, public IILaberin
 public:
 	// Sets default values for this actor's properties
 	ALaberintoConcreto();
+	class ALaberinto* Laberinto;
 
 private:
-	class ALaberinto* Laberinto;
+	TArray<TArray<int32>> aMapaBloques;
+	TArray<TArray<int32>> aMapaPuertas;
+	TArray<TArray<int32>> aMapaObstaculos;
+	float XInicial = 1000.0f;
+	float YInicial = 1000.0f;
+	float ZInicial = 0.0f;
 
 protected:
 	// Called when the game starts or when spawned

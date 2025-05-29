@@ -119,6 +119,12 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\LaberintoConcreto.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\LaberintoConcreto2.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\LaberintoConcreto3.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Obstaculo.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
@@ -186,6 +192,12 @@
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\LaberintoConcreto.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\LaberintoConcreto2.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\LaberintoConcreto3.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Obstaculo.h">

@@ -22,27 +22,92 @@ ALaberintoConcreto::ALaberintoConcreto()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-		// Mapeo tipo clase de bloque
-		MapaDeBloques.Add(1, ABloqueMadera::StaticClass());
-		MapaDeBloques.Add(2, ABloqueConcreto::StaticClass());
-		MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
-		MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
-		MapaDeBloques.Add(6, ABloqueOro::StaticClass());
-		MapaDeBloques.Add(5, ABloquePasto::StaticClass());
+		
+	aMapaBloques = {
+	{4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4},
+	{4, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0, 3, 0, 0, 0, 6, 0, 0, 4},
+	{4, 2, 3, 6, 1, 2, 6, 0, 5, 0, 6, 0, 3, 2, 1, 0, 6, 0, 2, 4},
+	{4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0, 0, 4},
+	{4, 3, 1, 2, 5, 0, 0, 5, 6, 0, 5, 0, 1, 0, 2, 3, 5, 0, 2, 4},
+	{4, 0, 0, 2, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4},
+	{4, 1, 5, 0, 2, 0, 6, 0, 6, 2, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4},
+	{4, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 6, 0, 0, 2, 0, 1, 0, 0, 4},
+	{4, 0, 0, 0, 0, 4, 0, 0, 5, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 4},
+	{4, 0, 0, 0, 2, 0, 3, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4},
+	{4, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 4},
+	{4, 0, 0, 0, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 5, 0, 0, 0, 4},
+	{4, 0, 1, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 4},
+	{4, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5, 0, 0, 3, 0, 0, 0, 0, 0, 4},
+	{4, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 5, 0, 0, 0, 3, 0, 0, 0, 4},
+	{4, 2, 0, 5, 0, 5, 0, 0, 6, 2, 0, 0, 0, 0, 5, 3, 5, 0, 1, 4},
+	{4, 0, 0, 5, 0, 0, 2, 0, 0 ,1, 0, 0, 2, 0, 0, 3, 0, 0, 0, 4},
+	{4, 5, 2, 0, 3, 0, 0, 1, 5, 0, 0, 1, 3, 0, 0, 0, 2, 3, 1, 4},
+	{4, 1, 0, 5, 0, 3, 0, 1, 0, 2, 0, 0, 0, 3, 0, 0, 6, 0, 0, 4},
+	{4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4}
+	};
 
-		MapaDeObstaculos.Add(8, AObstaculo::StaticClass());
+	aMapaPuertas = {
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0}
+	};
 
-		MapaDePuertas.Add(7, APuertaTransportadora::StaticClass());
+	aMapaObstaculos = {
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 8, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0}
+	};
 
+	MapaDeBloques.Add(1, ABloqueMadera::StaticClass());
+	MapaDeBloques.Add(2, ABloqueConcreto::StaticClass());
+	MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
+	MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
+	MapaDeBloques.Add(6, ABloqueOro::StaticClass());
+	MapaDeBloques.Add(5, ABloquePasto::StaticClass());
 
+	MapaDeObstaculos.Add(8, AObstaculo::StaticClass());
+
+	MapaDePuertas.Add(7, APuertaTransportadora::StaticClass());
 }
 
 // Called when the game starts or when spawned
 void ALaberintoConcreto::BeginPlay()
 {
 	Super::BeginPlay();
-
-	   Laberinto = GetWorld()->SpawnActor<ALaberinto>(ALaberinto::StaticClass());
 
 }
 
@@ -54,15 +119,14 @@ void ALaberintoConcreto::Tick(float DeltaTime)
 }
 void ALaberintoConcreto::ConstruirMuros()
 {
-	if (!Laberinto) return;
-	for (int32 i = 0; i < Laberinto->aMapaBloques.Num(); i++)
+	for (int32 i = 0; i < aMapaBloques.Num(); i++)
 	{
-		for (int32 j = 0; j < Laberinto->aMapaBloques[i].Num(); j++)
+		for (int32 j = 0; j < aMapaBloques[i].Num(); j++)
 		{
-			int32 Tipo = Laberinto->aMapaBloques[i][j];
+			int32 Tipo = aMapaBloques[i][j];
 			if (MapaDeBloques.Contains(4) && Tipo != 0)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
+				FVector Posicion(XInicial + i * 200, YInicial + j * 200, ZInicial);
 				GetWorld()->SpawnActor<AActor>(MapaDeBloques[4], Posicion, FRotator::ZeroRotator);
 			}
 		}
@@ -71,17 +135,15 @@ void ALaberintoConcreto::ConstruirMuros()
 
 void ALaberintoConcreto::ConstruirBloques()
 {
-	if (!Laberinto) return;
-
-	for (int32 i = 0; i < Laberinto->aMapaBloques.Num(); i++)
+	for (int32 i = 0; i < aMapaBloques.Num(); i++)
 	{
-		for (int32 j = 0; j < Laberinto->aMapaBloques[i].Num(); j++)
+		for (int32 j = 0; j < aMapaBloques[i].Num(); j++)
 		{
-			int32 Tipo = Laberinto->aMapaBloques[i][j];
+			int32 Tipo = aMapaBloques[i][j];
 
 			if (Tipo != 0 && Tipo != 4 && Tipo != 7 && Tipo != 8)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
+				FVector Posicion(XInicial + i * 200, YInicial + j * 200, ZInicial);
 				GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator);
 			}
 		}
@@ -90,17 +152,15 @@ void ALaberintoConcreto::ConstruirBloques()
 
 void ALaberintoConcreto::ConstruirObstaculos()
 {
-	if (!Laberinto) return;
-
-	for (int32 i = 0; i < Laberinto->aMapaObstaculos.Num(); i++)
+	for (int32 i = 0; i < aMapaObstaculos.Num(); i++)
 	{
-		for (int32 j = 0; j < Laberinto->aMapaObstaculos[i].Num(); j++)
+		for (int32 j = 0; j < aMapaObstaculos[i].Num(); j++)
 		{
-			int32 Tipo = Laberinto->aMapaObstaculos[i][j];
+			int32 Tipo = aMapaObstaculos[i][j];
 
-			if (Tipo == 8 && Tipo != 0 )
+			if (Tipo == 8 && Tipo != 0)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
+				FVector Posicion(XInicial + i * 200, YInicial + j * 200, ZInicial);
 				GetWorld()->SpawnActor<AActor>(MapaDeObstaculos[8], Posicion, FRotator::ZeroRotator);
 			}
 		}
@@ -108,17 +168,16 @@ void ALaberintoConcreto::ConstruirObstaculos()
 }
 void ALaberintoConcreto::ConstruirPuertas()
 {
-	if (!Laberinto) return;
 
-	for (int32 i = 0; i < Laberinto->aMapaPuertas.Num(); i++)
+	for (int32 i = 0; i < aMapaPuertas.Num(); i++)
 	{
-		for (int32 j = 0; j < Laberinto->aMapaPuertas[i].Num(); j++)
+		for (int32 j = 0; j < aMapaPuertas[i].Num(); j++)
 		{
-			int32 Tipo = Laberinto->aMapaPuertas[i][j];
+			int32 Tipo = aMapaPuertas[i][j];
 
 			if (Tipo == 7 && Tipo != 0)
 			{
-				FVector Posicion(Laberinto->XInicial + i * 200, Laberinto->YInicial + j * 200, Laberinto->ZInicial);
+				FVector Posicion(XInicial + i * 200, YInicial + j * 200, ZInicial);
 				GetWorld()->SpawnActor<AActor>(MapaDePuertas[7], Posicion, FRotator::ZeroRotator);
 			}
 		}
