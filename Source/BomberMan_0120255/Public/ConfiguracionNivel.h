@@ -24,4 +24,5 @@ class BOMBERMAN_0120255_API IConfiguracionNivel
 public:
 	virtual void EnemyLife() = 0;
 	virtual void CargarLaberinto() = 0;
+	virtual void CargarEnemigos() = 0;
 };

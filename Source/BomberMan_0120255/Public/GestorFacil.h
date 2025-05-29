@@ -30,6 +30,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	void EnemyLife() override;
 	void CargarLaberinto() override;
+	void CargarEnemigos() override;
 
 	float EnemyLifeEasy;
 };

@@ -21,26 +21,9 @@ void AGestorMedio::BeginPlay()
 {
 	Super::BeginPlay();
 
-    // Crea el enemigo base (prototipo)
-    FVector BaseLocation = FVector(-500.0f, -20.0f, 290.0f);
-    FRotator SpawnRotation = FRotator::ZeroRotator;
-
-    AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(
-        AEnemigo::StaticClass(),
-        BaseLocation,
-        SpawnRotation);
-
-    // Verifica que se creó correctamente
-    if (EnemigoReferencia)
-    {
-        // Clona el enemigo 5 veces
-        for (int32 i = 0; i < 3; i++)
-        {
-            FVector SpawnLocation = BaseLocation + FVector(i * 200.0f, 0.0f, 0.0f);
-            AActor* Clon = EnemigoReferencia->Clonar(SpawnLocation);
-        }
-    }
-	
+    CargarLaberinto();
+    EnemyLife();
+    CargarEnemigos();
 }
 
 // Called every frame
@@ -71,5 +54,28 @@ void AGestorMedio::CargarLaberinto()
     DirectorLab2->EstablecerILaberintoBuilder(BuilderLab2);
     DirectorLab2->ConstruirLaberinto();
     ALaberinto* Laberinto = DirectorLab2->GetLaberinto();
+}
+
+void AGestorMedio::CargarEnemigos()
+{
+    // Crea el enemigo base (prototipo)
+    FVector BaseLocation = FVector(-500.0f, -20.0f, 290.0f);
+    FRotator SpawnRotation = FRotator::ZeroRotator;
+
+    AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(
+        AEnemigo::StaticClass(),
+        BaseLocation,
+        SpawnRotation);
+
+    // Verifica que se creó correctamente
+    if (EnemigoReferencia)
+    {
+        // Clona el enemigo 5 veces
+        for (int32 i = 0; i < 3; i++)
+        {
+            FVector SpawnLocation = BaseLocation + FVector(i * 200.0f, 0.0f, 0.0f);
+            AActor* Clon = EnemigoReferencia->Clonar(SpawnLocation);
+        }
+    }
 }
 

@@ -43,7 +43,7 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	//AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(AEnemigo::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
 	//AActor* clonenemigo = EnemigoReferencia->Clonar();
 
-	//ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
+	//AGestorFacil* ges = GetWorld()->SpawnActor<AGestorFacil>(AGestorFacil::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
 	//AActor* clonbloque = BloqueReferencia->Clonar();
 
 	// Generar el enemigo original y 5 clones
