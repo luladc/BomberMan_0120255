@@ -6,7 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "BomberMan_0120255GameMode.generated.h"
 
-class ABloque; class ABloqueRaro;
+class ABloque; class ABloqueRaro; class AGestorDificultad;
 
 UCLASS(minimalapi)
 class ABomberMan_0120255GameMode : public AGameModeBase
@@ -32,6 +32,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
 	class ADirector* DirectorLab;
+
+	AGestorDificultad* DifficultyManager;
 
 	// Declarar un mapa de bloques como un array bidimensional
 	/*TArray<TArray<int32>> aMapaBloques = {

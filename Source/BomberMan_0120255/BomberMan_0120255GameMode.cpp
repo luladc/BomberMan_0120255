@@ -14,6 +14,7 @@
 #include "Obstaculo.h"
 #include "Director.h"
 #include "Enemigo.h"
+#include "GestorDificultad.h"
 
 
 ABomberMan_0120255GameMode::ABomberMan_0120255GameMode()
@@ -32,18 +33,11 @@ void ABomberMan_0120255GameMode::BeginPlay()
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
-	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
 	//BuilderLab2 = GetWorld()->SpawnActor<ALaberintoConcreto2>(ALaberintoConcreto2::StaticClass());
-	//BuilderLab3 = GetWorld()->SpawnActor<ALaberintoConcreto3>(ALaberintoConcreto3::StaticClass());
-	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
-	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+	//DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
 	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab2);
-	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab3);
-
-
-	//ABloqueRaro* BloqueReferencia = GetWorld()->SpawnActor<ABloqueRaro>(ABloqueRaro::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
-	DirectorLab->ConstruirLaberinto();
-    ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+	//DirectorLab->ConstruirLaberinto();
+   //ALaberinto* Laberinto = DirectorLab->GetLaberinto();
 
 
 	//AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(AEnemigo::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
@@ -81,5 +75,26 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	//	}
 	//}
 
+	DifficultyManager = GetWorld()->SpawnActor<AGestorDificultad>(AGestorDificultad::StaticClass());
+
+	    int32 RandomDifficulty = FMath::RandRange(0, 2);
+	    switch (RandomDifficulty)
+	    {
+	    case 0:
+	    	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, TEXT("Dificultad Facil"));
+	    	DifficultyManager->EasyDifficultyOperation();
+	    	break;
+	    case 1:
+	    	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, TEXT("Dificultad Media"));
+	    	DifficultyManager->MediumDifficultyOperation();
+	    	break;
+	    case 2:
+	    	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, TEXT("Dificultad Dificil"));
+	    	DifficultyManager->ExtremeDifficultyOperation();
+	    	break;
+	    default:
+	    	break;
+	    
+	    }
 
 }

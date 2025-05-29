@@ -95,6 +95,9 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\BloqueVidrio.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\ConfiguracionNivel.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\Director.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
@@ -102,6 +105,18 @@
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\EnemigoTerrestre.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\GestorDificil.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\GestorDificultad.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\GestorFacil.cpp">
+      <Filter>Source\BomberMan_0120255\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Private\GestorMedio.cpp">
       <Filter>Source\BomberMan_0120255\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Private\IBloque.cpp">
@@ -170,6 +185,9 @@
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\BloqueVidrio.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\ConfiguracionNivel.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\Director.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
@@ -177,6 +195,18 @@
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\EnemigoTerrestre.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\GestorDificil.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\GestorDificultad.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\GestorFacil.h">
+      <Filter>Source\BomberMan_0120255\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BomberMan_0120255\Public\GestorMedio.h">
       <Filter>Source\BomberMan_0120255\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BomberMan_0120255\Public\IBloque.h">
