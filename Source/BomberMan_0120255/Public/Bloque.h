@@ -1,20 +1,21 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
-
+#include "IBloque.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Bloque.generated.h"
 
 UCLASS()
-class BOMBERMAN_0120255_API ABloque : public AActor
+class BOMBERMAN_0120255_API ABloque : public AActor, public IIBloque
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
 	ABloque();
-
+	// Método para clonar el actor
+	virtual AActor* ClonarBloque(FVector PosicionDestino) override;
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Bloque")
 	UStaticMeshComponent* MallaBloque;

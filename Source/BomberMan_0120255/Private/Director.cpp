@@ -57,7 +57,6 @@ void ADirector::ConstruirLaberinto()
 		}
 		//Creates the buildings
 		LaberintoBuilder->ConstruirBloques();
-		LaberintoBuilder->ConstruirMuros();
 		LaberintoBuilder->ConstruirPuertas();
 		LaberintoBuilder->ConstruirObstaculos();
 }

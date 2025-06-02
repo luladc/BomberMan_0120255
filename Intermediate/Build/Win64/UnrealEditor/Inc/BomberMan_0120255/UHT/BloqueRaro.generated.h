@@ -20,8 +20,7 @@ private: \
 	friend struct Z_Construct_UClass_ABloqueRaro_Statics; \
 public: \
 	DECLARE_CLASS(ABloqueRaro, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/BomberMan_0120255"), NO_API) \
-	DECLARE_SERIALIZER(ABloqueRaro) \
-	virtual UObject* _getUObject() const override { return const_cast<ABloqueRaro*>(this); }
+	DECLARE_SERIALIZER(ABloqueRaro)
 
 
 #define FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloqueRaro_h_12_ENHANCED_CONSTRUCTORS \

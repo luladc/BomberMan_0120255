@@ -59,8 +59,4 @@ public:
     UFUNCTION(BlueprintCallable, Category = "Properties")
     float GetPatrolRadius() const { return PatrolRadius; }
 
-public:
-
-    void SetMesh(UStaticMesh* NewMesh);
-
 };

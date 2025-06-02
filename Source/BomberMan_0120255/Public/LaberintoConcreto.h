@@ -1,5 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 #pragma once
+#include "IBloque.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "ILaberintoBuilder.h"
@@ -40,5 +40,10 @@ public:
 	TMap<int32, TSubclassOf<AActor>> MapaDeBloques;
 	TMap<int32, TSubclassOf<AActor>> MapaDePuertas;
 	TMap<int32, TSubclassOf<AActor>> MapaDeObstaculos;
+	// Mapa de bloques generados en la mitad derecha para luego clonarlos
+	TMap<AActor*, FVector> BloquesDerecha;
 
+protected:
+	void ConstruirMitadDerecha();
+	void ClonarMitadIzquierda();
 };

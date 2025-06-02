@@ -30,6 +30,28 @@ ABloque::ABloque()
 	MallaBloque->SetWorldScale3D(TamanoBloque);
 }
 
+AActor* ABloque::ClonarBloque(FVector PosicionDestino)
+//este es un puntero hacia un actor que va a aser nuestro clon 
+//el parametro de posisciondestino es el ligar en el que nuestro clon va a spawnearse
+{
+	
+	UWorld* World = GetWorld();
+	//Obtiene una referencia al mundo actual.
+	//GetWorld() te da acceso al contexto del juego para poder spawnear(SpawnActor) actores.
+	if (!World) return nullptr;
+//Si World es nullptr (no existe), entonces no se puede continuar, así que se devuelve nullptr.
+
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	//FActorSpawnParameters permite personalizar cómo se spawnea el actor.
+    //SpawnCollisionHandlingOverride en AlwaysSpawn asegura que el actor se spawnee incluso si hay colisiones en el lugar.
+
+	ABloque* Clon = World->SpawnActor<ABloque>(GetClass(), PosicionDestino, FRotator::ZeroRotator, SpawnParams);
+
+	return Clon;
+
+}
+
 // Called when the game starts or when spawned
 void ABloque::BeginPlay()
 {

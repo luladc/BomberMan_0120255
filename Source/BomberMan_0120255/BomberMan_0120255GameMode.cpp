@@ -33,11 +33,11 @@ void ABomberMan_0120255GameMode::BeginPlay()
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
-	//BuilderLab2 = GetWorld()->SpawnActor<ALaberintoConcreto2>(ALaberintoConcreto2::StaticClass());
-	//DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
-	//DirectorLab->EstablecerILaberintoBuilder(BuilderLab2);
-	//DirectorLab->ConstruirLaberinto();
-   //ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+	BuilderLab = GetWorld()->SpawnActor<ALaberintoConcreto>(ALaberintoConcreto::StaticClass());
+	DirectorLab = GetWorld()->SpawnActor<ADirector>(ADirector::StaticClass());
+	DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
+	DirectorLab->ConstruirLaberinto();
+    ALaberinto* Laberinto = DirectorLab->GetLaberinto();
 
 
 	//AEnemigo* EnemigoReferencia = GetWorld()->SpawnActor<AEnemigo>(AEnemigo::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator);
@@ -75,26 +75,26 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	//	}
 	//}
 
-	DifficultyManager = GetWorld()->SpawnActor<AGestorDificultad>(AGestorDificultad::StaticClass());
+	//DifficultyManager = GetWorld()->SpawnActor<AGestorDificultad>(AGestorDificultad::StaticClass());
 
-	    int32 RandomDifficulty = FMath::RandRange(0, 2);
-	    switch (RandomDifficulty)
-	    {
-	    case 0:
-	    	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, TEXT("Dificultad Facil"));
-	    	DifficultyManager->EasyDifficultyOperation();
-	    	break;
-	    case 1:
-	    	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, TEXT("Dificultad Media"));
-	    	DifficultyManager->MediumDifficultyOperation();
-	    	break;
-	    case 2:
-	    	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, TEXT("Dificultad Dificil"));
-	    	DifficultyManager->ExtremeDifficultyOperation();
-	    	break;
-	    default:
-	    	break;
-	    
-	    }
+	    //int32 RandomDifficulty = FMath::RandRange(0, 2);
+	    //switch (RandomDifficulty)
+	    //{
+	    //case 0:
+	    //	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Purple, TEXT("Dificultad Facil"));
+	    //	DifficultyManager->EasyDifficultyOperation();
+	    //	break;
+	    //case 1:
+	    //	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Orange, TEXT("Dificultad Media"));
+	    //	DifficultyManager->MediumDifficultyOperation();
+	    //	break;
+	    //case 2:
+	    //	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Black, TEXT("Dificultad Dificil"));
+	    //	DifficultyManager->ExtremeDifficultyOperation();
+	    //	break;
+	    //default:
+	    //	break;
+	    //
+	    //}
 
 }
