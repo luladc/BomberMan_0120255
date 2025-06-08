@@ -40,10 +40,4 @@ public:
 	TMap<int32, TSubclassOf<AActor>> MapaDeBloques;
 	TMap<int32, TSubclassOf<AActor>> MapaDePuertas;
 	TMap<int32, TSubclassOf<AActor>> MapaDeObstaculos;
-	// Mapa de bloques generados en la mitad derecha para luego clonarlos
-	TMap<AActor*, FVector> BloquesDerecha;
-
-protected:
-	void ConstruirMitadDerecha();
-	void ClonarMitadIzquierda();
 };

@@ -36,20 +36,22 @@ AActor* ABloque::ClonarBloque(FVector PosicionDestino)
 {
 	
 	UWorld* World = GetWorld();
-	//Obtiene una referencia al mundo actual.
-	//GetWorld() te da acceso al contexto del juego para poder spawnear(SpawnActor) actores.
+	//el uwolrd obtiene una referencia al mundo actual.
+	//el GetWorld() da acceso al contexto del juego para poder spawnear
 	if (!World) return nullptr;
-//Si World es nullptr (no existe), entonces no se puede continuar, así que se devuelve nullptr.
+    //Si World es nullptr (no existe), entonces no se puede continuar, así que se devuelve nullptr.
 
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-	//FActorSpawnParameters permite personalizar cómo se spawnea el actor.
+	//FActorSpawnParameters nos permite personalizar el como se va a spawnear el actor
     //SpawnCollisionHandlingOverride en AlwaysSpawn asegura que el actor se spawnee incluso si hay colisiones en el lugar.
 
 	ABloque* Clon = World->SpawnActor<ABloque>(GetClass(), PosicionDestino, FRotator::ZeroRotator, SpawnParams);
-
+	//GetClass() devuelve la clase exacta del objeto que está siendo clonado
+	//Se spawnea en la PosicionDestino
+	//El actor que va crearse va a ser guardado en Clon
 	return Clon;
-
+	//y ese return vuelve el actor clonado
 }
 
 // Called when the game starts or when spawned

@@ -92,12 +92,12 @@ ALaberintoConcreto3::ALaberintoConcreto3()
 	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0}
 	};
 
-	MapaDeBloques.Add(1, ABloqueMadera::StaticClass());
-	MapaDeBloques.Add(2, ABloqueConcreto::StaticClass());
+	MapaDeBloques.Add(1, ABloqueVidrio::StaticClass());
+	MapaDeBloques.Add(2, ABloqueBurbuja::StaticClass());
 	MapaDeBloques.Add(4, ABloqueAcero::StaticClass());
-	MapaDeBloques.Add(3, ABloqueLadrillo::StaticClass());
-	MapaDeBloques.Add(6, ABloqueOro::StaticClass());
-	MapaDeBloques.Add(5, ABloquePasto::StaticClass());
+	MapaDeBloques.Add(3, ABloqueAgua::StaticClass());
+	MapaDeBloques.Add(6, ABloqueConcreto::StaticClass());
+	MapaDeBloques.Add(5, ABloqueHielo::StaticClass());
 
 	MapaDeObstaculos.Add(8, AObstaculo::StaticClass());
 

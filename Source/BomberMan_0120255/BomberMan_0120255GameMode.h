@@ -20,19 +20,6 @@ public:
 	virtual void BeginPlay() override;
 
 private:
-	//El actor constructor
-	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ALaberintoConcreto* BuilderLab;
-
-	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ALaberintoConcreto2* BuilderLab2;
-
-	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ALaberintoConcreto3* BuilderLab3;
-
-	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
-	class ADirector* DirectorLab;
-
 	AGestorDificultad* DifficultyManager;
 
 	// Declarar un mapa de bloques como un array bidimensional

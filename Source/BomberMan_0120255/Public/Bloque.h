@@ -15,7 +15,7 @@ public:
 	// Sets default values for this actor's properties
 	ABloque();
 	// Método para clonar el actor
-	virtual AActor* ClonarBloque(FVector PosicionDestino) override;
+	virtual AActor* ClonarBloque(FVector PosicionDestino);
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Bloque")
 	UStaticMeshComponent* MallaBloque;
