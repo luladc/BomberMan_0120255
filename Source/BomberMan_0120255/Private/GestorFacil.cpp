@@ -6,7 +6,10 @@
 #include "LaberintoConcreto.h"
 #include "ILaberintoBuilder.h"
 #include "Director.h"
+#include "Bomba.h"
+#include "Bloque.h"
 #include "Laberinto.h"
+#include <Kismet/GameplayStatics.h>
 
 // Sets default values
 AGestorFacil::AGestorFacil()
@@ -24,6 +27,41 @@ void AGestorFacil::BeginPlay()
     CargarLaberinto();
     EnemyLife();
     CargarEnemigos();
+
+    // Crear bomba y guardarla
+    FVector PosicionBomba = FVector(1200, 2000, 20);
+    ABomba* BombaCreada = GetWorld()->SpawnActor<ABomba>(ABomba::StaticClass(), PosicionBomba, FRotator::ZeroRotator);
+
+    // Verifica que se haya creado correctamente
+    if (!BombaCreada)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("No se pudo crear la bomba"));
+        return;
+    }
+
+    TArray<AActor*> Laberintos;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), ALaberintoConcreto::StaticClass(), Laberintos);
+
+    if (Laberintos.Num() > 0)
+    {
+        ALaberintoConcreto* LaberintoRef = Cast<ALaberintoConcreto>(Laberintos[0]);
+
+        if (LaberintoRef)
+        {
+            const TArray<ABloque*>& Bloques = LaberintoRef->GetBloquesGenerados();
+            // Usar bloques aquí
+			for (ABloque* Bloque : Bloques)
+			{
+				if (Bloque)
+				{
+					// Asignar la bomba al bloque
+					Bloque->SetBomba(BombaCreada);
+					// Suscribirse a la bomba
+					BombaCreada->Subscribir(Bloque);
+				}
+			}
+        }
+    }
 }
 
 // Called every frame
@@ -53,6 +91,11 @@ void AGestorFacil::CargarLaberinto()
     DirectorLab->EstablecerILaberintoBuilder(BuilderLab);
     DirectorLab->ConstruirLaberinto();
     ALaberinto* Laberinto = DirectorLab->GetLaberinto();
+    ALaberintoConcreto* LabConcreto = Cast<ALaberintoConcreto>(BuilderLab);
+    if (LabConcreto)
+    {
+        aBloques = LabConcreto->GetBloquesGenerados();
+    }
 }
 
 void AGestorFacil::CargarEnemigos()

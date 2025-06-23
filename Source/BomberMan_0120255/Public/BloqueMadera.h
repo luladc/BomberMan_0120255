@@ -15,4 +15,6 @@ class BOMBERMAN_0120255_API ABloqueMadera : public ABloque
 	GENERATED_BODY()
 public:
 	ABloqueMadera();
+	virtual void Update(APublicador* Publisher) override;
+
 };

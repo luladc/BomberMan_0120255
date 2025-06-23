@@ -82,10 +82,10 @@ ABloquePasto::~ABloquePasto() {}
 struct Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloquePasto_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABloquePasto, ABloquePasto::StaticClass, TEXT("ABloquePasto"), &Z_Registration_Info_UClass_ABloquePasto, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloquePasto), 980048067U) },
+		{ Z_Construct_UClass_ABloquePasto, ABloquePasto::StaticClass, TEXT("ABloquePasto"), &Z_Registration_Info_UClass_ABloquePasto, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloquePasto), 4009227474U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloquePasto_h_2357042949(TEXT("/Script/BomberMan_0120255"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloquePasto_h_1391525429(TEXT("/Script/BomberMan_0120255"),
 	Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloquePasto_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloquePasto_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

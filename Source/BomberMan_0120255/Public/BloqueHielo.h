@@ -21,4 +21,6 @@ public:
 	void AlternarVisibilidad();
 private:
 	FTimerHandle TimerVisibilidad;
+	virtual void Update(APublicador* Publisher) override;
+
 };

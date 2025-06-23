@@ -35,7 +35,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-	/** Método para clonar el actor */
+	// Método para clonar el actor 
 	virtual AActor* Clonar(FVector SpawnLocation) override;
 
     // Método para iniciar el movimiento de patrulla

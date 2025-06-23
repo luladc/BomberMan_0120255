@@ -16,4 +16,6 @@ class BOMBERMAN_0120255_API ABloquePasto : public ABloque
 protected:
 	ABloquePasto();
 	virtual void BeginPlay() override;
+	virtual void Update(APublicador* Publisher) override;
+
 };

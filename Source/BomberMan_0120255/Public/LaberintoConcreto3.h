@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "LaberintoConcreto3.generated.h"
-
+class ABloque;
 UCLASS()
 class BOMBERMAN_0120255_API ALaberintoConcreto3 : public AActor, public IILaberintoBuilder
 {
@@ -20,6 +20,7 @@ private:
 	TArray<TArray<int32>> aMapaBloques;
 	TArray<TArray<int32>> aMapaPuertas;
 	TArray<TArray<int32>> aMapaObstaculos;
+
 	float XInicial = 1000.0f;
 	float YInicial = 1000.0f;
 	float ZInicial = 0.0f;
@@ -40,5 +41,10 @@ public:
 	TMap<int32, TSubclassOf<AActor>> MapaDeBloques;
 	TMap<int32, TSubclassOf<AActor>> MapaDePuertas;
 	TMap<int32, TSubclassOf<AActor>> MapaDeObstaculos;
+
+public:
+	TArray<ABloque*> BloquesGenerados;
+
+	TArray<ABloque*> GetBloquesGenerados() const { return BloquesGenerados; }
 
 };

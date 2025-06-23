@@ -16,4 +16,7 @@ class BOMBERMAN_0120255_API ABloqueAgua : public ABloque
 
 protected:
 	ABloqueAgua();
+public:
+	virtual void Update(APublicador* Publisher) override;
+
 };

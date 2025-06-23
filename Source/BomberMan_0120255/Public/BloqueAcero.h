@@ -16,6 +16,7 @@ class BOMBERMAN_0120255_API ABloqueAcero : public ABloque
 
 public:
 	ABloqueAcero();
+	virtual void Update(APublicador* Publisher) override;
 protected:
 	virtual void BeginPlay() override;
 };

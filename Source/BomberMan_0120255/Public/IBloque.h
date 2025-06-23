@@ -24,4 +24,5 @@ class BOMBERMAN_0120255_API IIBloque
 public:
 	/** Método para clonar el actor */
 	virtual AActor* ClonarBloque(FVector PosicionDestino) = 0;
+	virtual void Morph() = 0;
 };

@@ -120,7 +120,11 @@ void ALaberintoConcreto::ConstruirMuros()
 			if (MapaDeBloques.Contains(4) && Tipo != 0)
 			{
 				FVector Posicion(XInicial + i * 200, YInicial + j * 200, ZInicial);
-				GetWorld()->SpawnActor<AActor>(MapaDeBloques[4], Posicion, FRotator::ZeroRotator);
+				ABloque* BloqueCreado = Cast<ABloque>(GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator));
+				if (BloqueCreado)
+				{
+					BloquesGenerados.Add(BloqueCreado);
+				}
 			}
 		}
 	}
@@ -137,7 +141,11 @@ void ALaberintoConcreto::ConstruirBloques()
 			if (Tipo != 0 && Tipo != 4 && Tipo != 7 && Tipo != 8)
 			{
 				FVector Posicion(XInicial + i * 200, YInicial + j * 200, ZInicial);
-				GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator);
+				ABloque* BloqueCreado = Cast<ABloque>(GetWorld()->SpawnActor<AActor>(MapaDeBloques[Tipo], Posicion, FRotator::ZeroRotator));
+				if (BloqueCreado)
+				{
+					BloquesGenerados.Add(BloqueCreado);
+				}
 			}
 		}
 	}

@@ -18,12 +18,12 @@ AEnemigo::AEnemigo()
     MeshComponent->SetupAttachment(RootComponent);
 
     // Cargar el mesh del Goomba desde el contenido
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Cone.Shape_Cone'"));
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> MeshAsset(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Sphere.Shape_Sphere'"));
 
     if (MeshAsset.Succeeded())
     {
         MeshComponent->SetStaticMesh(MeshAsset.Object);
-        MeshComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
+        MeshComponent->SetRelativeLocation(FVector(2411.0f, 4603.0f, 112.0f));
         MeshComponent->SetRelativeScale3D(FVector(1.0f, 1.0f, 1.0f));
     }
 
@@ -120,23 +120,6 @@ AActor* AEnemigo::Clonar(FVector SpawnLocation)
 
     // Crear el clon
     AEnemigo* Clon = World->SpawnActor<AEnemigo>(GetClass(), SpawnLocation, Rotation, SpawnParams);
-
-    if (Clon)
-    {
-        // Copiar valores importantes
-        Clon->MovementSpeed = MovementSpeed;
-        Clon->PatrolRadius = PatrolRadius;
-        Clon->bMovingRight = bMovingRight;
-
-        // Copiar el Static Mesh
-        if (MeshComponent && MeshComponent->GetStaticMesh())
-        {
-            Clon->MeshComponent->SetStaticMesh(MeshComponent->GetStaticMesh());
-        }
-
-        // Iniciar patrullaje
-        Clon->StartPatrol();
-    }
 
     return Clon;
 }

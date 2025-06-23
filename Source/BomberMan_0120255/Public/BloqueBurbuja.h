@@ -15,4 +15,6 @@ class BOMBERMAN_0120255_API ABloqueBurbuja : public ABloque
 	GENERATED_BODY()
 public:
 	ABloqueBurbuja();
+	virtual void Update(APublicador* Publisher) override;
+
 };

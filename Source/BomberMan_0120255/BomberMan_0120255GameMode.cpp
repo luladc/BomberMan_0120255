@@ -3,6 +3,10 @@
 #include "BomberMan_0120255GameMode.h"
 #include "BomberMan_0120255Character.h"
 #include "UObject/ConstructorHelpers.h"
+#include "Bomba.h"
+#include "Bloque.h"
+#include "Subscriptor.h"
+#include "Publicador.h"
 #include "GestorDificultad.h"
 
 
@@ -19,6 +23,7 @@ ABomberMan_0120255GameMode::ABomberMan_0120255GameMode()
 void ABomberMan_0120255GameMode::BeginPlay()
 {
 	Super::BeginPlay();
+
 
 	GEngine->AddOnScreenDebugMessage(-1, -1, FColor::Red, TEXT("Bloque Spawning"));
 
@@ -45,3 +50,4 @@ void ABomberMan_0120255GameMode::BeginPlay()
 	}
 
 }
+//

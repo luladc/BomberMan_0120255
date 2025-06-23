@@ -2,6 +2,8 @@
 
 
 #include "Bloque.h"
+#include "Publicador.h"
+#include "Bomba.h"
 #include "Components/StaticMeshComponent.h"
 
 // Sets default values
@@ -12,6 +14,9 @@ ABloque::ABloque()
 	MallaBloque = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MallaBloque"));
 	RootComponent = MallaBloque;
 	MallaBloque->SetupAttachment(RootComponent);
+	MallaBloque->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	MallaBloque->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
+	MallaBloque->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> ObjetoMallaBloque(TEXT("/Script/Engine.StaticMesh'/Game/StarterContent/Shapes/Shape_Cube.Shape_Cube'"));
 
@@ -31,27 +36,15 @@ ABloque::ABloque()
 }
 
 AActor* ABloque::ClonarBloque(FVector PosicionDestino)
-//este es un puntero hacia un actor que va a aser nuestro clon 
-//el parametro de posisciondestino es el ligar en el que nuestro clon va a spawnearse
 {
-	
 	UWorld* World = GetWorld();
-	//el uwolrd obtiene una referencia al mundo actual.
-	//el GetWorld() da acceso al contexto del juego para poder spawnear
 	if (!World) return nullptr;
-    //Si World es nullptr (no existe), entonces no se puede continuar, así que se devuelve nullptr.
 
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-	//FActorSpawnParameters nos permite personalizar el como se va a spawnear el actor
-    //SpawnCollisionHandlingOverride en AlwaysSpawn asegura que el actor se spawnee incluso si hay colisiones en el lugar.
 
 	ABloque* Clon = World->SpawnActor<ABloque>(GetClass(), PosicionDestino, FRotator::ZeroRotator, SpawnParams);
-	//GetClass() devuelve la clase exacta del objeto que está siendo clonado
-	//Se spawnea en la PosicionDestino
-	//El actor que va crearse va a ser guardado en Clon
 	return Clon;
-	//y ese return vuelve el actor clonado
 }
 
 // Called when the game starts or when spawned
@@ -65,5 +58,48 @@ void ABloque::BeginPlay()
 void ABloque::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+}
+
+void ABloque::Destroy()
+{
+	Super::Destroy(); // Llamar al método base
+	if (!Bomba) {
+		return;
+	}
+
+	Bomba->DeSubscribir(this);
+}
+
+void ABloque::Update(APublicador* Publisher)
+{
+	FVector PosBomba = Publisher->GetActorLocation();
+	FVector PosBloque = GetActorLocation();
+
+	bool MismaX = FMath::IsNearlyEqual(PosBomba.X, PosBloque.X, 1.0f);
+	bool MismaY = FMath::IsNearlyEqual(PosBomba.Y, PosBloque.Y, 1.0f);
+
+	float Distancia = FVector::Dist(PosBomba, PosBloque);
+
+	if (bEsDestructible && Distancia <= 300.0f && (MismaX || MismaY))
+	{
+		Destroy();
+	}
+}
+
+
+void ABloque::Morph()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Bloque en %s fue destruido"), *GetActorLocation().ToString());
+
+	Destroy();
+}
+
+void ABloque::SetBomba(ABomba* miBomba)
+{
+	if (Bomba && bEsDestructible) // solo si este bloque es destructible
+	{
+		Bomba->Subscribir(this); // Suscribirse
+	}
 
 }

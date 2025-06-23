@@ -5,7 +5,7 @@
 #include "ILaberintoBuilder.h"
 #include "Laberinto.h"
 #include "LaberintoConcreto.generated.h"
-
+class ABloque;
 UCLASS()
 class BOMBERMAN_0120255_API ALaberintoConcreto : public AActor, public IILaberintoBuilder
 {
@@ -40,4 +40,9 @@ public:
 	TMap<int32, TSubclassOf<AActor>> MapaDeBloques;
 	TMap<int32, TSubclassOf<AActor>> MapaDePuertas;
 	TMap<int32, TSubclassOf<AActor>> MapaDeObstaculos;
+
+public:
+	TArray<ABloque*> BloquesGenerados;
+
+	TArray<ABloque*> GetBloquesGenerados() const { return BloquesGenerados; }
 };

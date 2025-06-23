@@ -2,6 +2,7 @@
 
 
 #include "BloqueAcero.h"
+#include "Publicador.h"
 
 ABloqueAcero::ABloqueAcero()
 {
@@ -19,4 +20,10 @@ ABloqueAcero::ABloqueAcero()
 void ABloqueAcero::BeginPlay()
 {
 
+}
+
+void ABloqueAcero::Update(APublicador* Publisher)
+{
+    UE_LOG(LogTemp, Warning, TEXT("¡Bloque es destructible!"));
+    Morph();
 }

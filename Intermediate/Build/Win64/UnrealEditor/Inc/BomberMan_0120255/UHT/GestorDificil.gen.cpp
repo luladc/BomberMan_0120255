@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGestorDificil() {}
 
 // Begin Cross Module References
+BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ABloque_NoRegister();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_ADirector_NoRegister();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_AGestorDificil();
 BOMBERMAN_0120255_API UClass* Z_Construct_UClass_AGestorDificil_NoRegister();
@@ -43,9 +44,20 @@ struct Z_Construct_UClass_AGestorDificil_Statics
 		{ "Category", "GameModeBase" },
 		{ "ModuleRelativePath", "Public/GestorDificil.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_aBloques_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Bloques generados para aplicar el patr\xef\xbf\xbdn Observer\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GestorDificil.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Bloques generados para aplicar el patr\xef\xbf\xbdn Observer" },
+#endif
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_BuilderLab3;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DirectorLab3;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_aBloques_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_aBloques;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
@@ -56,9 +68,13 @@ struct Z_Construct_UClass_AGestorDificil_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGestorDificil_Statics::NewProp_BuilderLab3 = { "BuilderLab3", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGestorDificil, BuilderLab3), Z_Construct_UClass_ALaberintoConcreto3_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BuilderLab3_MetaData), NewProp_BuilderLab3_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGestorDificil_Statics::NewProp_DirectorLab3 = { "DirectorLab3", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGestorDificil, DirectorLab3), Z_Construct_UClass_ADirector_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DirectorLab3_MetaData), NewProp_DirectorLab3_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGestorDificil_Statics::NewProp_aBloques_Inner = { "aBloques", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_ABloque_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AGestorDificil_Statics::NewProp_aBloques = { "aBloques", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGestorDificil, aBloques), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_aBloques_MetaData), NewProp_aBloques_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGestorDificil_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGestorDificil_Statics::NewProp_BuilderLab3,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGestorDificil_Statics::NewProp_DirectorLab3,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGestorDificil_Statics::NewProp_aBloques_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGestorDificil_Statics::NewProp_aBloques,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGestorDificil_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AGestorDificil_Statics::DependentSingletons[])() = {
@@ -104,10 +120,10 @@ AGestorDificil::~AGestorDificil() {}
 struct Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_GestorDificil_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGestorDificil, AGestorDificil::StaticClass, TEXT("AGestorDificil"), &Z_Registration_Info_UClass_AGestorDificil, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGestorDificil), 2976811998U) },
+		{ Z_Construct_UClass_AGestorDificil, AGestorDificil::StaticClass, TEXT("AGestorDificil"), &Z_Registration_Info_UClass_AGestorDificil, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGestorDificil), 3637570305U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_GestorDificil_h_4213573237(TEXT("/Script/BomberMan_0120255"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_GestorDificil_h_1168035769(TEXT("/Script/BomberMan_0120255"),
 	Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_GestorDificil_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_GestorDificil_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

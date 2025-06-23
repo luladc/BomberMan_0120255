@@ -22,4 +22,6 @@ private:
 	FTimerHandle TimerDestruir; // Declarar TimerDestruir
 
 	void DestruirBloque();
+	virtual void Update(APublicador* Publisher) override;
+
 };

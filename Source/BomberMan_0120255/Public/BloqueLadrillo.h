@@ -17,4 +17,6 @@ public:
 	ABloqueLadrillo();
 protected:
 	virtual void BeginPlay() override;
+	virtual void Update(APublicador* Publisher) override;
+
 };

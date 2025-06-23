@@ -20,6 +20,7 @@ protected:
 
 public:
     virtual void Tick(float DeltaTime) override;
+    virtual void Update(APublicador* Publisher) override;
 
 private:
     FVector PosicionInicial;

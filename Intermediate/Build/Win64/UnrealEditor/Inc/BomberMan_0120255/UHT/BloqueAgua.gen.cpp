@@ -82,10 +82,10 @@ ABloqueAgua::~ABloqueAgua() {}
 struct Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloqueAgua_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABloqueAgua, ABloqueAgua::StaticClass, TEXT("ABloqueAgua"), &Z_Registration_Info_UClass_ABloqueAgua, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloqueAgua), 2576085203U) },
+		{ Z_Construct_UClass_ABloqueAgua, ABloqueAgua::StaticClass, TEXT("ABloqueAgua"), &Z_Registration_Info_UClass_ABloqueAgua, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABloqueAgua), 1547295205U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloqueAgua_h_2869225605(TEXT("/Script/BomberMan_0120255"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloqueAgua_h_1748067967(TEXT("/Script/BomberMan_0120255"),
 	Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloqueAgua_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Descargas_Unreal_Projects_BomberMan_0120255_Source_BomberMan_0120255_Public_BloqueAgua_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

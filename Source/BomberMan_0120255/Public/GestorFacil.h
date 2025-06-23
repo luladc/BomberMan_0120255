@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GestorFacil.generated.h"
-
+class ABloque;
 UCLASS()
 class BOMBERMAN_0120255_API AGestorFacil : public AActor, public IConfiguracionNivel
 {
@@ -24,6 +24,10 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "GameModeBase")
 	class ADirector* DirectorLab;
+
+	// Bloques generados para aplicar el patrón Observer
+	UPROPERTY()
+	TArray<ABloque*> aBloques;
 
 public:	
 	// Called every frame
